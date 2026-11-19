@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Calculus Quest</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div id="auth">
+ <div class="hero">
+ <h3>fx Calculus Quest</h3>
+ <h1>Learn Calculus<br>Play, Practice,<br><span>Level Up!</span></h1>
+ <p>A gamified learning platform to master calculus with lessons, tasks and challenges.</p>
+ <svg class="mountain" viewBox="0 0 420 330" xmlns="http://www.w3.org/2000/svg">
+ <polygon points="10,330 235,70 410,330" fill="#5b3fc4"/>
+ <polygon points="170,134 235,70 270,150 215,138" fill="#8b6fe8"/>
+ <path d="M125 330 C 55 280, 190 262, 135 222 S 225 170, 238 108" fill="none" stroke="#c4b5fd" stroke-width="11" stroke-linecap="round"/>
+ <line x1="236" y1="70" x2="236" y2="22" stroke="#fbbf24" stroke-width="3"/>
+ <polygon points="236,22 262,30 236,38" fill="#fbbf24"/>
+ <rect x="30" y="248" width="76" height="30" rx="7" fill="#3b82f6"/>
+ <text x="68" y="268" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">Learn</text>
+ <rect x="85" y="168" width="92" height="30" rx="7" fill="#14b8a6"/>
+ <text x="131" y="188" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">Practice</text>
+ <rect x="232" y="118" width="96" height="30" rx="7" fill="#f59e0b"/>
+ <text x="280" y="138" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">Level Up</text>
+ </svg>
+ </div>
+ <div class="container">
+ <form id="loginForm" novalidate>
+ <h2>Welcome Back!</h2>
+ <div class="form-group">
+ <label for="loginEmail">Email</label>
+ <input type="text" id="loginEmail" placeholder="Enter your email">
+ <span class="error" id="loginEmailError"></span>
+ </div>
+ <div class="form-group">
+ <label for="loginPassword">Password</label>
+ <input type="password" id="loginPassword" placeholder="Enter your password">
+ <span class="error" id="loginPasswordError"></span>
+ </div>
+ <p class="forgot"><a onclick="showAuth('forgotForm')">Forgot password?</a></p>
+ <button type="submit">Log In</button>
+ <p>Don't have an account? <a onclick="showAuth('registerForm')">Create Account</a></p>
+ <small class="demo">Demo: student@cq.com / student123, teacher@cq.com / teacher123, officer@cq.com / officer123, admin@cq.com / admin123</small>
+ </form>
+
+ <form id="registerForm" class="hidden" novalidate>
+ <h2>Create an Account</h2>
+ <div class="form-group">
+ <label for="regName">Full Name</label>
+ <input type="text" id="regName" placeholder="Enter your name">
+ <span class="error" id="regNameError"></span>
+ </div>
+ <div class="form-group">
+ <label for="regEmail">Email</label>
+ <input type="text" id="regEmail" placeholder="Enter your email">
+ <span class="error" id="regEmailError"></span>
+ </div>
+ <div class="form-group">
+ <label for="regRole">Role</label>
+ <select id="regRole">
+ <option value="">Select</option>
+ <option value="student">Student</option>
+ <option value="teacher">Teacher</option>
+ <option value="officer">Complaint Officer</option>
+ </select>
+ <span class="error" id="regRoleError"></span>
+ </div>
+ <div class="form-group">
+ <label for="regPassword">Password</label>
+ <input type="password" id="regPassword" placeholder="Enter your password">
+ <span class="error" id="regPasswordError"></span>
+ </div>
+ <div class="form-group">
+ <label for="regConfirm">Confirm Password</label>
+ <input type="password" id="regConfirm" placeholder="Re-enter your password">
+ <span class="error" id="regConfirmError"></span>
+ </div>
+ <button type="submit">Create Account</button>
+ <p><a onclick="showAuth('loginForm')">Already have an account? Log in</a></p>
+ </form>
+
+ <form id="forgotForm" class="hidden" novalidate>
+ <h2>Forgot Password?</h2>
+ <div class="form-group">
+ <label for="forgotEmail">Email</label>
+ <input type="text" id="forgotEmail" placeholder="Enter your email">
+ <span class="error" id="forgotEmailError"></span>
+ </div>
+ <button type="submit">Continue</button>
+ <p><a onclick="showAuth('loginForm')">Back to log in</a></p>
+ </form>
+
+ <form id="resetForm" class="hidden" novalidate>
+ <h2>Reset Your Password</h2>
+ <div class="form-group">
+ <label for="resetPassword">New Password</label>
+ <input type="password" id="resetPassword" placeholder="Enter new password">
+ <span class="error" id="resetPasswordError"></span>
+ </div>
+ <div class="form-group">
+ <label for="resetConfirm">Confirm New Password</label>
+ <input type="password" id="resetConfirm" placeholder="Re-enter new password">
+ <span class="error" id="resetConfirmError"></span>
+ </div>
+ <button type="submit">Update Password</button>
+ <p><a onclick="showAuth('loginForm')">Back to log in</a></p>
+ </form>
+ </div>
+ </div>
+
+ <div id="app" class="hidden">
+ <div class="sidebar">
+ <h3>fx Calculus Quest</h3>
+ <div id="nav"></div>
+ <a class="logout" onclick="logout()">Log Out</a>
+ </div>
+ <div class="content">
+ <div class="topbar" id="topbar"></div>
+ <div id="main"></div>
+ </div>
+ </div>
+ <script src="shared.js"></script>
+ <script src="db.js"></script>
+ <script src="auth.js"></script>
+ <script src="student.js"></script>
+ <script src="dashboards.js"></script>
+ <script src="teacher.js"></script>
+ <script src="admin.js"></script>
+ <script src="officer.js"></script>
+ <script src="profile.js"></script>
+ <script src="main.js"></script>
+</body>
+</html>
